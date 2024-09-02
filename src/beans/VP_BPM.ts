@@ -1,5 +1,5 @@
 import { Message } from 'primeng/api';
-import { Anexo } from 'prisma_prismafunctions';
+
 import * as wsb from './WS_Beans';
 
 // Crie aqui todas as váriaveis de processo
@@ -33,7 +33,6 @@ export class VP_BPM {
   public ged_pasta_pai_id: string = '';
 
   public anexo_files: File[] = [];
-  public anexo_ged: Anexo[] = [];
   public anexo_id: string = '';
   public anexo_nome: string = 'nome';
 

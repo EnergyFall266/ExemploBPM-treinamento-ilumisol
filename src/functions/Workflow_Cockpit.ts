@@ -2,7 +2,7 @@ import { ResponseLoadData, VP_BPM } from 'src/beans/VP_BPM';
 import { Info } from 'src/beans/Workflow';
 import { ws_beans_header } from 'src/beans/WS_Beans';
 import { environment } from 'src/environments/environment';
-import {AnexoService} from '../app/app.service'
+
 import { getFormPresentation } from './Form_Presentation';
 import getVP from './Get_VP_BPM';
 
@@ -11,7 +11,7 @@ const STEP = environment.tarefa();
 declare var removeData: any;
 declare var rollbackData: any;
 
-async function loadData(vp: VP_BPM, info: Info, anexoService: AnexoService): Promise<ResponseLoadData> {
+async function loadData(vp: VP_BPM, info: Info): Promise<ResponseLoadData> {
   var rld: ResponseLoadData = { initial: 1, tabs: [1, 2, 3], vp };
 
   rld.vp.user_fullName = (await info.getUserData()).fullname;
@@ -27,7 +27,7 @@ async function loadData(vp: VP_BPM, info: Info, anexoService: AnexoService): Pro
     rld.vp = getVP(rld.vp, map);
   }
   rld = getFormPresentation(rld);
-  anexoService.anexoLoad(rld);
+
 
   return rld;
 }

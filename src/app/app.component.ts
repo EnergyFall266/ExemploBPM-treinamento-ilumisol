@@ -9,7 +9,6 @@ import * as wc from 'src/functions/Workflow_Cockpit';
 import { Data, Info } from 'src/beans/Workflow';
 import axios from 'axios';
 import { ThemeService } from '../services/theme.service';
-import { AnexoService } from './app.service';
 import { Messages } from 'primeng/messages';
 
 declare var workflowCockpit: any;
@@ -38,7 +37,6 @@ export class AppComponent {
     public primeNGConfig: PrimeNGConfig,
     private themeService: ThemeService,
     private formValidate: Validate_Service,
-    private anexoService: AnexoService
   ) {
     new workflowCockpit({
       init: this._loadData,
@@ -81,7 +79,7 @@ export class AppComponent {
   }
 
   private _loadData = async (_data: Data, info: Info): Promise<void> => {
-    const r = await wc.loadData(this.vp, info, this.anexoService);
+    const r = await wc.loadData(this.vp, info);
     this.vp = r.vp;
   };
 
