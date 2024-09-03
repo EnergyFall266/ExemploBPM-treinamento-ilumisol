@@ -27,10 +27,7 @@ export class VP_BPM {
 
   public token: string = '';
   public user_fullName: string = '';
-  public GED_pasta_codigo: string = '';
-  public ged_pasta_pai_nome: string = 'Projeto Padrao';
-  public GED_pasta_codigo_id: string = '';
-  public ged_pasta_pai_id: string = '';
+
 
   public anexo_files: File[] = [];
   public anexo_id: string = '';
@@ -39,8 +36,8 @@ export class VP_BPM {
   public testecheck: boolean = true
 
   public show_servicos: wsb.Servicos[] = [];
+  public nomeSolicitante: string = '';
 
-  public anexo_files_sem_GED: AnexoFile[] = [];
-  public anexo_files_sem_GED_txt: string = '';
+  public readonlyNomeSolicitante : boolean = false;
 }
 

@@ -29,6 +29,7 @@ import { FileUploadModule } from 'primeng/fileupload';
 import { RadioButtonModule } from 'primeng/radiobutton';
 
 import { Validate_Service } from 'src/services/Validate_Service';
+import { NomeSolicitanteComponent } from './nome-solicitante/nome-solicitante.component';
 
 export const HttpLoaderFactory = (httpClient: HttpClient) =>
   new TranslateHttpLoader(httpClient, 'assets/i18n/');
@@ -36,6 +37,7 @@ export const HttpLoaderFactory = (httpClient: HttpClient) =>
 @NgModule({
   declarations: [
     AppComponent,
+    NomeSolicitanteComponent,
   ],
   imports: [
     BrowserAnimationsModule,

@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 
 import { getFormPresentation } from './Form_Presentation';
 import getVP from './Get_VP_BPM';
+import { exportaOrigens } from './WS_Axios';
 
 const STEP = environment.tarefa();
 
@@ -17,6 +18,8 @@ async function loadData(vp: VP_BPM, info: Info): Promise<ResponseLoadData> {
   rld.vp.user_fullName = (await info.getUserData()).fullname;
 
   const ptd = await info.getPlatformData();
+  const user = await info.getUserData();
+  console.log(user)
   rld.vp.token = `bearer ${ptd.token.access_token}`;
   ws_beans_header.headers!['Authorization'] = rld.vp.token;
 
@@ -26,8 +29,17 @@ async function loadData(vp: VP_BPM, info: Info): Promise<ResponseLoadData> {
     for (let i of ipv) map.set(i.key, i.value);
     rld.vp = getVP(rld.vp, map);
   }
-  rld = getFormPresentation(rld);
+  else {
+    rld.vp.nomeSolicitante = user.fullname;
+    let body = {
+      codEmp: 1
+    }
+    let origens = await exportaOrigens(JSON.stringify(body))
 
+    console.log(origens)
+  }
+  rld = getFormPresentation(rld);
+  console.log(STEP)
 
   return rld;
 }

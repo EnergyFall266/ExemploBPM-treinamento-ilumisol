@@ -1,4 +1,8 @@
-<button [hidden]="true" type="button" (click)="a()">teste</button>
+<p-messages #msg [styleClass]="'w-12'"></p-messages>
+<div class="grid">
+<app-nome-solicitante [vp]="vp" class="col-6"></app-nome-solicitante>
+</div>
+
 
 <div class="progress-spinner-parent" *ngIf="vp.Buscando_WS">
   <p-progressSpinner class="progress-spinner"></p-progressSpinner>

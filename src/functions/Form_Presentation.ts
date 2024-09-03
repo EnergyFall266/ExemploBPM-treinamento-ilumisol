@@ -6,7 +6,10 @@ const STEP = environment.tarefa();
 export function getFormPresentation(rld: ResponseLoadData): ResponseLoadData {
   switch (STEP) {
     case environment.s1_etapa1:
-      rld.vp.GED_pasta_codigo = new Date().getTime().toString();
+      break;
+    case environment.s2_etapa2:
+      rld.vp.readonlyNomeSolicitante = true;
+
   }
 
   return rld;

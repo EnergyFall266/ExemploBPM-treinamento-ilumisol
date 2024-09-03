@@ -18,6 +18,7 @@ export const environment = {
     },
   ],
   codEmp: 1,
-  s1_etapa1: 'etapa1',
-  s2_etapa2: 'etapa2',
+  s1_etapa1: 'solicitacao',
+  s2_etapa2: 'ti',
+  s3_etapa3: 'solicitante'
 };
