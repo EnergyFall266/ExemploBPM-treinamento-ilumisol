@@ -4,13 +4,13 @@ import { environment } from 'src/environments/environment';
 
 const URL = environment.url_padrao;
 
-export const exportaOrigens = async (body: string) =>
+export const exportaUsuarios = async (body: string) =>
   (
     await axios.post<
       AxiosResponse<any>,
       AxiosResponse<any>
     >(
-      `https://senior.ilumisol.com.br:8181/SXI/G5Rest?server=http://localhost:8081&module=sapiens&service=com.prisma.sugestaocompra&port=ExportaOrigens&useAlwaysArray=true`,
+      `https://senior.ilumisol.com.br:8183/SXI/G5Rest?server=https://senior.ilumisol.com.br:8183&module=rubi&service=ColaboradorAtivo&port=GetDados&useAlwaysArray=true`,
       body,
       wsb.ws_beans_header
     )

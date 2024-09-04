@@ -5,7 +5,8 @@ import { environment } from 'src/environments/environment';
 
 import { getFormPresentation } from './Form_Presentation';
 import getVP from './Get_VP_BPM';
-import { exportaOrigens } from './WS_Axios';
+import { exportaUsuarios } from './WS_Axios';
+
 
 const STEP = environment.tarefa();
 
@@ -21,7 +22,7 @@ async function loadData(vp: VP_BPM, info: Info): Promise<ResponseLoadData> {
   const user = await info.getUserData();
   console.log(user)
   rld.vp.token = `bearer ${ptd.token.access_token}`;
-  ws_beans_header.headers!['Authorization'] = rld.vp.token;
+  // ws_beans_header.headers!['Authorization'] = rld.vp.token;
 
   const ipv = await info.getInfoFromProcessVariables();
   if (STEP !== environment.s1_etapa1) {
@@ -31,12 +32,10 @@ async function loadData(vp: VP_BPM, info: Info): Promise<ResponseLoadData> {
   }
   else {
     rld.vp.nomeSolicitante = user.fullname;
-    let body = {
-      codEmp: 1
-    }
-    let origens = await exportaOrigens(JSON.stringify(body))
-
-    console.log(origens)
+    let body = {}
+    let ret = await exportaUsuarios(JSON.stringify(body))
+    rld.vp.colaboradores = ret.colaborador
+    
   }
   rld = getFormPresentation(rld);
   console.log(STEP)
@@ -45,6 +44,8 @@ async function loadData(vp: VP_BPM, info: Info): Promise<ResponseLoadData> {
 }
 
 function saveData(vp: VP_BPM): any {
+
+
   return { formData: vp };
 }
 

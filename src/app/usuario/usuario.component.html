@@ -1,0 +1,23 @@
+<div class="col-12">
+  <div class="grid">
+    <span class="col-12">Colaboradores</span>
+    <div class="col-12">
+      <p-autoComplete
+          [(ngModel)]="vp.colaborador"
+          [suggestions]="colaboradoresFiltrados"
+          (completeMethod)="colaboradorInput($event)"
+          field="nome"
+          [forceSelection]="true"
+          placeholder="Selecione um colaborador"
+          [style]="{ width: '100%' }"
+          (onSelect)="selecionar()"
+          [virtualScroll]="true"
+          [inputStyleClass]="'col-12'"
+          >
+          <ng-template let-col pTemplate="item">
+            {{col.cadastro}} - {{col.nome}}
+          </ng-template>
+          </p-autoComplete>
+
+  </div>
+</div>

@@ -13,15 +13,15 @@ export class Validate_Service {
 
   public validate(vp: VP_BPM) {
     switch (this.STEP) {
-      // case environment.s1_etapa1:
-      //   if(vp.msgTeste == ''){
-      //     this.ms.add({
-      //       severity: 'warn',
-      //       summary: 'Message working!',
-      //       detail: 'testeMsg',
-      //     });
-      //   }
-      //   break;
+      case environment.s1_etapa1:
+        if(vp.nomeSolicitante == ''){
+          this.ms.add({
+            severity: 'warn',
+            summary: 'Preencha o nome Solicitante!',
+            detail: 'Por favor preencha o seu nome.',
+          });
+        }
+        break;
       default:
         break;
     }

@@ -8,7 +8,7 @@ export function getFormPresentation(rld: ResponseLoadData): ResponseLoadData {
     case environment.s1_etapa1:
       break;
     case environment.s2_etapa2:
-      rld.vp.readonlyNomeSolicitante = true;
+      rld.vp.readonlyDescricao = true;
 
   }
 

@@ -1,11 +1,11 @@
-<div class="col-12">
+<div class="col-12" *ngIf="!vp.hideNomeSolicitante">
   <span class="col-12">Nome Solicitante</span>
   <div class="col-12 py-0">
-            <input
-              [(ngModel)]="vp.nomeSolicitante"
-              pInputText
-              class="col-12"
-              [readOnly]="true"
-            />
+       <input
+         [(ngModel)]="vp.nomeSolicitante"
+         pInputText
+         class="col-12"
+         [readOnly]="false"
+       />
   </div>
 </div>

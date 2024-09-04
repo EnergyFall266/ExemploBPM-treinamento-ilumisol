@@ -24,12 +24,15 @@ import { MenuModule } from 'primeng/menu';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { AppRoutingModule } from './app-routing.module';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { AutoCompleteModule } from 'primeng/autocomplete';
 
 import { FileUploadModule } from 'primeng/fileupload';
 import { RadioButtonModule } from 'primeng/radiobutton';
 
 import { Validate_Service } from 'src/services/Validate_Service';
 import { NomeSolicitanteComponent } from './nome-solicitante/nome-solicitante.component';
+import { ObservacaoComponent } from './observacao/observacao.component';
+import { UsuarioComponent } from './usuario/usuario.component';
 
 export const HttpLoaderFactory = (httpClient: HttpClient) =>
   new TranslateHttpLoader(httpClient, 'assets/i18n/');
@@ -38,6 +41,8 @@ export const HttpLoaderFactory = (httpClient: HttpClient) =>
   declarations: [
     AppComponent,
     NomeSolicitanteComponent,
+    ObservacaoComponent,
+    UsuarioComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -63,6 +68,7 @@ export const HttpLoaderFactory = (httpClient: HttpClient) =>
     ProgressSpinnerModule,
     FileUploadModule,
     RadioButtonModule,
+    AutoCompleteModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

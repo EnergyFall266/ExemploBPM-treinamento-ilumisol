@@ -19,6 +19,13 @@ export class AnexoFile {
   }
 }
 
+export interface Colaborador {
+  nome: string;
+  cadastro: number;
+  empresa: number;
+  tipoColaborador: number;
+}
+
 export class VP_BPM {
   public overlay: boolean = true;
   public Buscando_WS: boolean = true;
@@ -38,6 +45,15 @@ export class VP_BPM {
   public show_servicos: wsb.Servicos[] = [];
   public nomeSolicitante: string = '';
 
+  public readonlyDescricao : boolean = false;
+  public descricao: string = ''
+
+  public colaboradores: Colaborador[] = []
+  public colaborador!: Colaborador;
+  public numEmp: number = 0
+  public tipCol: number = 0
+  public numCad: number = 0
   public readonlyNomeSolicitante : boolean = false;
+  public hideNomeSolicitante : boolean = false;
 }
 
